@@ -1,4 +1,8 @@
-import "./globals.css"
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -7,7 +11,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{margin: 0}}>{children}</body>
+      <body className={inter.className} style={{ margin: 0, background: "black", color: "white" }}>
+        {children}
+      </body>
     </html>
   );
 }
