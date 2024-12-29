@@ -4,7 +4,7 @@ export default function page() {
   return (
     <>
       <Intro />
-      asd
+      Hello world
     </>
   );
 }
