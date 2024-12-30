@@ -38,8 +38,6 @@ export default function Intro() {
             1500,
             "I am a Software Engineer",
             1500,
-            "I am a Artist",
-            1500
           ]}
           wrapper="h2"
           speed={30}
