@@ -50,8 +50,13 @@ export default function Details() {
           </button>
         </div>
       </div>
-      <div className={`p-10 pt-20 basis-7/12 transition-opacity ${activeTopic === "About Me" ? "block opacity-100" : "hidden opacity-0"}`}>
-        <AboutMe />
+      <div className="p-10 pt-20 basis-7/12 relative">
+        <div className={`absolute duration-500 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0"}`}>
+          <AboutMe />
+        </div>
+        <div className={`absolute duration-500 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0"}`}>
+          Experience
+        </div>
       </div>
     </div>
   );

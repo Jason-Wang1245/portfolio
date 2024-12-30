@@ -2,7 +2,7 @@
 
 export default function AboutMe() {
   return (
-    <div className="transition-all">
+    <div className="transition-all delay-500">
       <div className="text-gray-400">
         <i className="bi bi-geo-alt-fill mr-1" />
         Canada, Ontario
