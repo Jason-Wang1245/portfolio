@@ -51,10 +51,10 @@ export default function Details() {
         </div>
       </div>
       <div className="p-10 pt-20 basis-7/12 relative">
-        <div className={`absolute duration-500 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0"}`}>
+        <div className={`absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0"}`}>
           <AboutMe />
         </div>
-        <div className={`absolute duration-500 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0"}`}>
+        <div className={`absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0"}`}>
           Experience
         </div>
       </div>
