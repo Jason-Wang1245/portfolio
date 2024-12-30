@@ -18,8 +18,8 @@ export default function AboutMe() {
         web-based visualizations. I contribute to the team by applying my web development expertise and providing technical support wherever needed.
         <br />
         <br />
-        Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also have a passion for 3D modelling,
-        fitness, and gaming.
+        Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also have a passion for 3D modelling
+        and fitness
       </div>
     </div>
   );
