@@ -11,7 +11,7 @@ export default function Details() {
   }
 
   return (
-    <div className="h-screen w-full px-72 flex">
+    <div className="h-screen w-full lg:px-[20%] px-[5%] flex">
       <div className="p-10 pt-20 flex flex-col basis-5/12">
         <div>
           <button
@@ -50,9 +50,7 @@ export default function Details() {
           </button>
         </div>
       </div>
-      <div className="p-10 pt-20 basis-7/12">
-        {activeTopic === "About Me" && <AboutMe />}
-      </div>
+      <div className="p-10 pt-20 basis-7/12">{activeTopic === "About Me" && <AboutMe />}</div>
     </div>
   );
 }
