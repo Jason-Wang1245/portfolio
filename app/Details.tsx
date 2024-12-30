@@ -11,7 +11,7 @@ export default function Details() {
   }
 
   return (
-    <div className="h-screen w-full lg:px-[20%] px-[5%] flex">
+    <div className="h-screen w-full lg:px-[20%] px-[5%] flex text-gray-500">
       <div className="p-10 pt-20 flex flex-col basis-5/12">
         <div>
           <button
@@ -50,7 +50,9 @@ export default function Details() {
           </button>
         </div>
       </div>
-      <div className="p-10 pt-20 basis-7/12">{activeTopic === "About Me" && <AboutMe />}</div>
+      <div className={`p-10 pt-20 basis-7/12 transition-opacity ${activeTopic === "About Me" ? "block opacity-100" : "hidden opacity-0"}`}>
+        <AboutMe />
+      </div>
     </div>
   );
 }
