@@ -27,8 +27,8 @@ export default function Details() {
       <div className="p-10 pt-20 flex flex-col basis-5/12">
         <div>
           <button
-            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 ${
-              activeTopic === "About Me" ? "text-cyan-500" : "text-white"
+            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
+              activeTopic === "About Me" ? "text-cyan-500 bg-white" : "text-white"
             }`}
             onClick={() => {
               handleTopicChange("About Me");
@@ -39,8 +39,8 @@ export default function Details() {
         </div>
         <div>
           <button
-            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 ${
-              activeTopic === "Experience" ? "text-cyan-500" : "text-white"
+            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
+              activeTopic === "Experience" ? "text-cyan-500 bg-white" : "text-white"
             }`}
             onClick={() => {
               handleTopicChange("Experience");
@@ -51,8 +51,8 @@ export default function Details() {
         </div>
         <div>
           <button
-            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 ${
-              activeTopic === "Projects" ? "text-cyan-500" : "text-white"
+            className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
+              activeTopic === "Projects" ? "text-cyan-500 bg-white" : "text-white"
             }`}
             onClick={() => {
               handleTopicChange("Projects");
