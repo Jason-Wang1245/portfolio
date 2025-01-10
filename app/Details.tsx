@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AboutMe from "./components/AboutMe";
+import Experience from "./components/Experience";
 
 export default function Details() {
   const [activeTopic, setActiveTopic] = useState("About Me");
@@ -24,7 +25,7 @@ export default function Details() {
       style={{ background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, #051e2e, #030712)` }}
       onMouseMove={handleMouseMove}
     >
-      <div className="p-10 pt-20 flex flex-col basis-5/12">
+      <div className="m-10 mt-20 flex flex-col basis-3/12">
         <div>
           <button
             className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
@@ -62,12 +63,14 @@ export default function Details() {
           </button>
         </div>
       </div>
-      <div className="p-10 pt-20 basis-7/12 relative">
-        <div className={`absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0"}`}>
+      <div className="m-10 mt-20 basis-9/12 relative overflow-scroll overflow-y-scroll no-scrollbar" style={{scrollbarGutter: "stable"}}>
+        <div className={`absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0 hidden"}`}>
           <AboutMe />
         </div>
-        <div className={`absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0"}`}>coming soon...</div>
-        <div className={`absolute duration-300 transition-all ${activeTopic === "Projects" ? "opacity-100" : "opacity-0"}`}>coming soon...</div>
+        <div className={`w-full absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0 hidden"}`}>
+          <Experience />
+        </div>
+        <div className={`absolute duration-300 transition-all ${activeTopic === "Projects" ? "opacity-100" : "opacity-0 hidden"}`}>coming soon...</div>
       </div>
     </div>
   );
