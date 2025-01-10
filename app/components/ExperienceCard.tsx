@@ -14,7 +14,7 @@ export default function ExperienceCard({
     techstack: string[];
 }) {
   return (
-    <div className="bg-white bg-opacity-5 transition-all duration-300 w-full p-5 rounded-lg shadow-2xl flex">
+    <div className="bg-white hover:bg-opacity-[7.5%] bg-opacity-5 transition-all w-full p-5 rounded-lg shadow-2xl flex">
       <div className="basis-3/12 text-xs">{time}</div>
       <div className="basis-9/12">
         <h2 className="text-gray-300">{title}</h2>
