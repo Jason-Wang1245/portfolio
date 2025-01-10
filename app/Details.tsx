@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "motion/react";
 import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 
@@ -77,15 +78,27 @@ export default function Details() {
         </div>
       </div>
       <div className="m-10 mt-20 basis-9/12 relative overflow-scroll overflow-y-scroll no-scrollbar" style={{ scrollbarGutter: "stable" }}>
-        <div className={`absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0 hidden"}`}>
+        <motion.div
+          className={`w-full absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0 hidden"}`}
+          animate={{ opacity: activeTopic === "About Me" ? 1 : 0 }}
+          transition={{ duration: 1, type: "spring" }}
+        >
           <AboutMe />
-        </div>
-        <div className={`w-full absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0 hidden"}`}>
+        </motion.div>
+        <motion.div
+          className={`w-full absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0 hidden"}`}
+          animate={{ opacity: activeTopic === "Experience" ? 1 : 0 }}
+          transition={{ duration: 1, type: "spring" }}
+        >
           <Experience />
-        </div>
-        <div className={`absolute duration-300 transition-all ${activeTopic === "Projects" ? "opacity-100" : "opacity-0 hidden"}`}>
+        </motion.div>
+        <motion.div
+          className={`w-full absolute duration-300 transition-all ${activeTopic === "Projects" ? "opacity-100" : "opacity-0 hidden"}`}
+          animate={{ opacity: activeTopic === "Projects" ? 1 : 0 }}
+          transition={{ duration: 1, type: "spring" }}
+        >
           coming soon...
-        </div>
+        </motion.div>
       </div>
     </div>
   );
