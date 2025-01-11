@@ -19,7 +19,7 @@ export default function AboutMe() {
         <br />
         <br />
         Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also have a passion for 3D modelling
-        and fitness
+        and fitness.
       </div>
     </div>
   );
