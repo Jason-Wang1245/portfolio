@@ -25,7 +25,7 @@ export default function Experience() {
         title="Front-End Clerk"
         location="Loblaws Inc."
         description="Worked collaboratively with team members to deliver exceptional customer service in a dynamic and fast-paced environment, enhancing communication skills to ensure customer satisfaction."
-        techstack={["Java"]}
+        techstack={[]}
       />
     </div>
   );
