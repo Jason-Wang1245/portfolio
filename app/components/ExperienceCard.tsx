@@ -5,13 +5,13 @@ export default function ExperienceCard({
   title,
   location,
   description,
-  techstack
+  techstack,
 }: {
   time: string;
   title: string;
   location: string;
   description: string;
-    techstack: string[];
+  techstack: string[];
 }) {
   return (
     <div className="bg-white hover:bg-opacity-[7.5%] bg-opacity-5 transition-all w-full p-5 rounded-lg shadow-2xl flex">
@@ -21,7 +21,11 @@ export default function ExperienceCard({
         <h3 className="text-gray-400 mb-1 text-opacity-80">{location}</h3>
         <p className="text-sm mb-2">{description}</p>
         <div className="flex gap-2 text-xs flex-wrap">
-        {techstack.map(tech => <div key={tech} className="bg-cyan-800 bg-opacity-50 text-cyan-300 rounded-3xl py-1 px-2">{tech}</div>)}
+          {techstack.map((tech) => (
+            <div key={tech} className="bg-cyan-800 bg-opacity-50 text-cyan-300 rounded-3xl py-1 px-2">
+              {tech}
+            </div>
+          ))}
         </div>
       </div>
     </div>

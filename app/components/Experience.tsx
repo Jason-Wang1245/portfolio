@@ -9,7 +9,7 @@ export default function Experience() {
         time="2024 — Present"
         title="IT Analyst (CO-OP)"
         location="Natural Resources Canada"
-        description="Developed an intranet application to streamline the moderation and review of survey responses for statisticians in an Agile environment via Azure DevOps to optimize workflows and ensure timely project delivery. Designed a Postgres database schema with Lucidchart, working closely with project managers to meet client needs."
+        description={`Developed an intranet application to streamline the moderation and review of survey responses for statisticians in an Agile environment via Azure DevOps to optimize workflows and ensure timely project delivery. Worked alongside project managers to design and implement a database system that would meet client requirements, as well as follow best database practices for database design with the use of LucidChart.`}
         techstack={["TypeScript", "React", "Next.JS", "Prisma ORM", "TailwindCSS", "NextAuth", "PostgreSQL", "Azure"]}
       />
       <ExperienceCard
@@ -24,7 +24,7 @@ export default function Experience() {
         time="2020 — 2024"
         title="Front-End Clerk"
         location="Loblaws Inc."
-        description="Worked collaboratively with team members to deliver exceptional customer service in a dynamic and fast-paced environment, enhancing communication skills to ensure customer satisfaction."
+        description="Worked collaboratively with team members to deliver customer service in a dynamic and fast-paced environment ensuring customer satisfaction."
         techstack={[]}
       />
     </div>
