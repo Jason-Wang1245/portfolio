@@ -1,34 +1,31 @@
 "use client";
 
-import { Titillium_Web } from "next/font/google";
-import Spline from "@splinetool/react-spline";
-import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
-import { useState } from "react";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
-const playfairDisplay = Titillium_Web({ subsets: ["latin"], weight:["700"] });
+import { Titillium_Web } from "next/font/google";
+import Image from "next/image";
+import { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
+
+const playfairDisplay = Titillium_Web({ subsets: ["latin"], weight: ["700"] });
 
 export default function Intro() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [hidden, setHidden] = useState(false); // used to ensure its hidden from dom
+  const [toggleHidden, setToggleHidden] = useState(false); // used to trigger hiding animation
 
-  return (
-    <div className="intro-container">
-      {isLoading && (
-        <div className="w-full h-full flex flex-col justify-center items-center bg-black">
-          <div className="w-16 h-16 border-4 border-t-4 border-gray-700 border-t-blue-500 rounded-full animate-spin mb-4"></div>
-          <p className="text-lg text-white animate-bounce">Loading...</p>
-        </div>
-      )}
-      <div className="spline-background">
-        <Spline
-          onLoad={() => {
-            setIsLoading(false);
-          }}
-          style={{ height: "110vh" }}
-          scene="https://prod.spline.design/mtne7ggQp72SlTvd/scene.splinecode"
-        />
-      </div>
-      <div className={`intro-content ${playfairDisplay.className}`}>
+  function hide() {
+    setToggleHidden(true);
+    setTimeout(() => setHidden(true), 500);
+  }
+
+  if (!hidden)
+    return (
+      <div
+        className={`${playfairDisplay.className} ${
+          !toggleHidden ? "translate-y-0" : "-translate-y-full"
+        } absolute top-0 left-0 h-screen w-screen flex flex-col items-center place-content-center cursor-pointer bg-black z-10 transform transition-transform duration-500`}
+        onClick={hide}
+      >
         <Image src="/profile.jpg" width={128} height={128} alt="profile.jpg" className="rounded-full shadow-xl" />
         <h1 className="text-6xl my-2">Hello. I&apos;m Jason Wang</h1>
         <TypeAnimation
@@ -44,7 +41,10 @@ export default function Intro() {
           style={{ fontSize: "1.5em" }}
           repeat={Infinity}
         />
+        <div className="absolute bottom-0 mb-8 flex flex-col items-center">
+          <MdKeyboardDoubleArrowDown className="text-white w-12 h-12 animate-bounce" />
+        </div>
       </div>
-    </div>
-  );
+    );
+  else return true;
 }

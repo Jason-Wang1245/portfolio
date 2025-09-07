@@ -30,8 +30,8 @@ export default function Details() {
         <div className="flex flex-col">
           <div>
             <button
-              className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
-                activeTopic === "About Me" ? "text-cyan-500 bg-white shadow-2xl" : "text-white"
+              className={`hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl cursor-pointer ${
+                activeTopic === "About Me" ? "text-cyan-500 bg-white/10 shadow-2xl" : "text-white"
               }`}
               onClick={() => {
                 handleTopicChange("About Me");
@@ -42,8 +42,8 @@ export default function Details() {
           </div>
           <div>
             <button
-              className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
-                activeTopic === "Experience" ? "text-cyan-500 bg-white shadow-2xl" : "text-white"
+              className={`hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl cursor-pointer ${
+                activeTopic === "Experience" ? "text-cyan-500 bg-white/10 shadow-2xl" : "text-white"
               }`}
               onClick={() => {
                 handleTopicChange("Experience");
@@ -54,8 +54,8 @@ export default function Details() {
           </div>
           <div>
             <button
-              className={`topic-button hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl bg-opacity-10 ${
-                activeTopic === "Projects" ? "text-cyan-500 bg-white shadow-2xl" : "text-white"
+              className={`hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl cursor-pointer ${
+                activeTopic === "Projects" ? "text-cyan-500 bg-white/10 shadow-2xl" : "text-white"
               }`}
               onClick={() => {
                 handleTopicChange("Projects");
