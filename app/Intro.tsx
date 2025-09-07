@@ -1,34 +1,21 @@
 "use client";
 
 import { Titillium_Web } from "next/font/google";
-import Spline from "@splinetool/react-spline";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 
-const playfairDisplay = Titillium_Web({ subsets: ["latin"], weight:["700"] });
+const playfairDisplay = Titillium_Web({ subsets: ["latin"], weight: ["700"] });
 
 export default function Intro() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [hidden, setHidden] = useState(false);
 
-  return (
-    <div className="intro-container">
-      {isLoading && (
-        <div className="w-full h-full flex flex-col justify-center items-center bg-black">
-          <div className="w-16 h-16 border-4 border-t-4 border-gray-700 border-t-blue-500 rounded-full animate-spin mb-4"></div>
-          <p className="text-lg text-white animate-bounce">Loading...</p>
-        </div>
-      )}
-      <div className="spline-background">
-        <Spline
-          onLoad={() => {
-            setIsLoading(false);
-          }}
-          style={{ height: "110vh" }}
-          scene="https://prod.spline.design/mtne7ggQp72SlTvd/scene.splinecode"
-        />
-      </div>
-      <div className={`intro-content ${playfairDisplay.className}`}>
+  if (!hidden)
+    return (
+      <div
+        className={`${playfairDisplay.className} absolute top-0 left-0 h-screen w-screen flex flex-col items-center place-content-center cursor-pointer bg-black z-10`}
+        onClick={() => setHidden(true)}
+      >
         <Image src="/profile.jpg" width={128} height={128} alt="profile.jpg" className="rounded-full shadow-xl" />
         <h1 className="text-6xl my-2">Hello. I&apos;m Jason Wang</h1>
         <TypeAnimation
@@ -45,6 +32,6 @@ export default function Intro() {
           repeat={Infinity}
         />
       </div>
-    </div>
-  );
+    );
+  else return undefined;
 }

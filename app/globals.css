@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.intro-container {
-  position: relative;
-  height: 105vh;
-  width: 100%;
-  overflow-y: hidden;
-}
-
 .spline-background {
   position: absolute;
   top: 0;
