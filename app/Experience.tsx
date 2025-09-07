@@ -1,6 +1,6 @@
 "use client";
 
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "./components/ExperienceCard";
 
 export default function Experience() {
   return (
@@ -13,7 +13,7 @@ export default function Experience() {
         techstack={["TypeScript", "React", "Next.JS", "Prisma ORM", "TailwindCSS", "NextAuth", "PostgreSQL", "Azure"]}
       />
       <ExperienceCard
-        time="2024 — 2024"
+        time="JAN — APR 2024"
         title="Teaching Assistant (Data Structures and Algorithms)"
         location="Carleton University"
         description="Provided weekly in-person office hours and moderated online forums to support over 400 undergraduate students with bi-weekly lab assessments and assisted the professor in reviewing assignments by proof-reading lab specifications and testing submissions to ensure the integrity of the auto-grader."

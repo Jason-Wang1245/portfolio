@@ -2,7 +2,7 @@
 
 export default function AboutMe() {
   return (
-    <div className="transition-all delay-500">
+    <div>
       <div className="text-gray-400">
         <i className="bi bi-geo-alt-fill mr-1" />
         Canada, Ontario
@@ -18,8 +18,8 @@ export default function AboutMe() {
         web-based visualizations. I contribute to the team by applying my web development expertise and providing technical support wherever needed.
         <br />
         <br />
-        Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also have a passion for 3D modelling
-        and fitness.
+        Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also maintain an active lifestyle
+        through activities such as badminton, weight lifting, and running.
       </div>
     </div>
   );
