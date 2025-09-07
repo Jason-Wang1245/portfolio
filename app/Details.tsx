@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import AboutMe from "./components/AboutMe";
-import Experience from "./components/Experience";
+import Experience from "./Experience";
+import Projects from "./Projects";
 
 export default function Details() {
   const [activeTopic, setActiveTopic] = useState("About Me");
@@ -64,6 +65,18 @@ export default function Details() {
               Projects
             </button>
           </div>
+          <div>
+            <button
+              className={`hover:text-cyan-500 px-4 py-2 transition-all duration-300 rounded-xl cursor-pointer ${
+                activeTopic === "Skills" ? "text-cyan-500 bg-white/10 shadow-2xl" : "text-white"
+              }`}
+              onClick={() => {
+                handleTopicChange("Skills");
+              }}
+            >
+              Skills
+            </button>
+          </div>
         </div>
         <div className="flex gap-4 pl-2">
           <a href="https://www.linkedin.com/in/jasonwang1123/" target="_blank">
@@ -79,22 +92,45 @@ export default function Details() {
       </div>
       <div className="m-10 mt-20 basis-9/12 relative overflow-scroll overflow-y-scroll no-scrollbar" style={{ scrollbarGutter: "stable" }}>
         <motion.div
-          className={`w-full absolute duration-300 transition-all ${activeTopic === "About Me" ? "opacity-100" : "opacity-0 hidden"}`}
-          animate={{ opacity: activeTopic === "About Me" ? 1 : 0 }}
+          className="w-full absolute"
+          animate={{
+            opacity: activeTopic === "About Me" ? 1 : 0,
+            pointerEvents: activeTopic === "About Me" ? "auto" : "none",
+            visibility: activeTopic === "About Me" ? "visible" : "hidden",
+          }}
           transition={{ duration: 1, type: "spring" }}
         >
           <AboutMe />
         </motion.div>
         <motion.div
-          className={`w-full absolute duration-300 transition-all ${activeTopic === "Experience" ? "opacity-100" : "opacity-0 hidden"}`}
-          animate={{ opacity: activeTopic === "Experience" ? 1 : 0 }}
+          className="w-full absolute"
+          animate={{
+            opacity: activeTopic === "Experience" ? 1 : 0,
+            pointerEvents: activeTopic === "Experience" ? "auto" : "none",
+            visibility: activeTopic === "Experience" ? "visible" : "hidden",
+          }}
           transition={{ duration: 1, type: "spring" }}
         >
           <Experience />
         </motion.div>
         <motion.div
-          className={`w-full absolute duration-300 transition-all ${activeTopic === "Projects" ? "opacity-100" : "opacity-0 hidden"}`}
-          animate={{ opacity: activeTopic === "Projects" ? 1 : 0 }}
+          className="w-full absolute"
+          animate={{
+            opacity: activeTopic === "Projects" ? 1 : 0,
+            pointerEvents: activeTopic === "Projects" ? "auto" : "none",
+            visibility: activeTopic === "Projects" ? "visible" : "hidden",
+          }}
+          transition={{ duration: 1, type: "spring" }}
+        >
+          <Projects />
+        </motion.div>
+        <motion.div
+          className="w-full absolute"
+          animate={{
+            opacity: activeTopic === "Skills" ? 1 : 0,
+            pointerEvents: activeTopic === "Skills" ? "auto" : "none",
+            visibility: activeTopic === "Skills" ? "visible" : "hidden",
+          }}
           transition={{ duration: 1, type: "spring" }}
         >
           coming soon...

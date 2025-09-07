@@ -27,20 +27,22 @@ export default function Intro() {
         onClick={hide}
       >
         <Image src="/profile.jpg" width={128} height={128} alt="profile.jpg" className="rounded-full shadow-xl" />
-        <h1 className="text-6xl my-2">Hello. I&apos;m Jason Wang</h1>
-        <TypeAnimation
-          sequence={[
-            // Same substring at the start will only be typed out once, initially
-            "I am a University Student",
-            1500,
-            "I am a Software Engineer",
-            1500,
-          ]}
-          wrapper="h2"
-          speed={30}
-          style={{ fontSize: "1.5em" }}
-          repeat={Infinity}
-        />
+        <h1 className="text-6xl my-2 text-center">Hello. I&apos;m Jason Wang</h1>
+        <div className="text-center">
+          <TypeAnimation
+            sequence={[
+              // Same substring at the start will only be typed out once, initially
+              "I am a University Student",
+              1500,
+              "I am a Software Engineer",
+              1500,
+            ]}
+            wrapper="h2"
+            speed={30}
+            style={{ fontSize: "1.5em" }}
+            repeat={Infinity}
+          />
+        </div>
         <div className="absolute bottom-0 mb-8 flex flex-col items-center">
           <MdKeyboardDoubleArrowDown className="text-white w-12 h-12 animate-bounce" />
         </div>
