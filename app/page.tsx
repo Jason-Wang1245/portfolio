@@ -1,11 +1,5 @@
-import Details from "./Details";
-import Intro from "./Intro";
+import PortfolioContent from "./components/PortfolioContent";
 
 export default function page() {
-  return (
-    <div className="relative">
-      <Intro />
-      <Details />
-    </div>
-  );
+  return <PortfolioContent />;
 }

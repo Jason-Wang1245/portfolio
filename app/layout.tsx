@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 import "./globals.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function RootLayout({
   children,

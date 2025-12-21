@@ -19,7 +19,7 @@ export default function AboutMe() {
         <br />
         <br />
         Outside of work and studies, I enjoy building my own web applications to address everyday challenges. I also maintain an active lifestyle
-        through activities such as badminton, weight lifting, and running.
+        through badminton, weight lifting, and running.
       </div>
     </div>
   );
