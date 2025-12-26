@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { HiMenu, HiX } from "react-icons/hi";
 import AboutMe from "./components/AboutMe";
 import Experience from "./Experience";
 import Projects from "./Projects";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+
+const BACKGROUND_COLOUR = "#030712";
+const BACKGROUND_HOVER = "#051e2e";
 
 export default function Details({ isIntroHidden = false }: { isIntroHidden?: boolean }) {
   const [activeTopic, setActiveTopic] = useState("About Me");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
     setMousePosition({
@@ -24,10 +31,17 @@ export default function Details({ isIntroHidden = false }: { isIntroHidden?: boo
     setIsMobileMenuOpen(false); // Close mobile menu when tab is selected
   }
 
+  // Reset scroll position when tab changes
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [activeTopic]);
+
   return (
     <div
       className="h-screen w-full lg:px-[20%] px-[5%] flex text-gray-500 relative"
-      style={{ background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, #051e2e, #030712)` }}
+      style={{ background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, ${BACKGROUND_HOVER}, ${BACKGROUND_COLOUR})` }}
       onMouseMove={handleMouseMove}
     >
       {/* Hamburger button - visible on mobile only, and only when intro is hidden */}
@@ -37,7 +51,7 @@ export default function Details({ isIntroHidden = false }: { isIntroHidden?: boo
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <HiX className="w-8 h-8" /> : <HiMenu className="w-8 h-8" />}
+          {isMobileMenuOpen ? <HiX className="w-8 h-8 cursor-pointer" /> : <HiMenu className="w-8 h-8 cursor-pointer" />}
         </button>
       )}
 
@@ -80,6 +94,22 @@ export default function Details({ isIntroHidden = false }: { isIntroHidden?: boo
               >
                 Projects
               </button>
+            </div>
+            {/* Social media icons for mobile */}
+            <div className="flex gap-4 justify-center mt-6 pt-6 border-t border-white/10">
+              <a
+                href="https://www.linkedin.com/in/jasonwang1123/"
+                target="_blank"
+                className="text-white hover:text-cyan-500 transition-colors duration-300"
+              >
+                <FaLinkedin size="1.875rem" />
+              </a>
+              <a href="https://github.com/Jason-Wang1245" target="_blank" className="text-white hover:text-cyan-500 transition-colors duration-300">
+                <FaGithub size="1.875rem" />
+              </a>
+              <a href="mailto:jasonwang1245@gamil.com" target="_blank" className="text-white hover:text-cyan-500 transition-colors duration-300">
+                <FaEnvelope size="1.875rem" />
+              </a>
             </div>
           </motion.div>
         </div>
@@ -139,64 +169,73 @@ export default function Details({ isIntroHidden = false }: { isIntroHidden?: boo
         </div>
         <div className="flex gap-4 pl-2">
           <a href="https://www.linkedin.com/in/jasonwang1123/" target="_blank">
-            <i className="bi bi-linkedin text-3xl" />
+            <FaLinkedin size="1.875rem" />
           </a>
           <a href="https://github.com/Jason-Wang1245" target="_blank">
-            <i className="bi bi-github text-3xl" />
+            <FaGithub size="1.875rem" />
           </a>
           <a href="mailto:jasonwang1245@gamil.com" target="_blank">
-            <i className="bi bi-envelope-at-fill text-3xl" />
+            <FaEnvelope size="1.875rem" />
           </a>
         </div>
       </div>
       <div
+        ref={scrollContainerRef}
         className="m-10 mt-24 lg:mt-20 lg:basis-9/12 w-full lg:w-auto relative overflow-scroll overflow-y-scroll no-scrollbar"
         style={{ scrollbarGutter: "stable" }}
       >
-        <motion.div
-          className="w-full absolute"
-          animate={{
-            opacity: activeTopic === "About Me" ? 1 : 0,
-            pointerEvents: activeTopic === "About Me" ? "auto" : "none",
-            visibility: activeTopic === "About Me" ? "visible" : "hidden",
-          }}
-          transition={{ duration: 1, type: "spring" }}
-        >
-          <AboutMe />
-        </motion.div>
-        <motion.div
-          className="w-full absolute"
-          animate={{
-            opacity: activeTopic === "Experience" ? 1 : 0,
-            pointerEvents: activeTopic === "Experience" ? "auto" : "none",
-            visibility: activeTopic === "Experience" ? "visible" : "hidden",
-          }}
-          transition={{ duration: 1, type: "spring" }}
-        >
-          <Experience />
-        </motion.div>
-        <motion.div
-          className="w-full absolute"
-          animate={{
-            opacity: activeTopic === "Projects" ? 1 : 0,
-            pointerEvents: activeTopic === "Projects" ? "auto" : "none",
-            visibility: activeTopic === "Projects" ? "visible" : "hidden",
-          }}
-          transition={{ duration: 1, type: "spring" }}
-        >
-          <Projects />
-        </motion.div>
-        {/* <motion.div
-          className="w-full absolute"
-          animate={{
-            opacity: activeTopic === "Skills" ? 1 : 0,
-            pointerEvents: activeTopic === "Skills" ? "auto" : "none",
-            visibility: activeTopic === "Skills" ? "visible" : "hidden",
-          }}
-          transition={{ duration: 1, type: "spring" }}
-        >
-          coming soon...
-        </motion.div> */}
+        <AnimatePresence mode="popLayout">
+          {activeTopic === "About Me" && (
+            <motion.div
+              key="about-me"
+              className="w-full relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+            >
+              <AboutMe />
+            </motion.div>
+          )}
+          {activeTopic === "Experience" && (
+            <motion.div
+              key="experience"
+              className="w-full relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+            >
+              <Experience />
+            </motion.div>
+          )}
+          {activeTopic === "Projects" && (
+            <motion.div
+              key="projects"
+              className="w-full relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+            >
+              <Projects />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {/* <AnimatePresence mode="wait">
+          {activeTopic === "Skills" && (
+            <motion.div
+              key="skills"
+              className="w-full relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+            >
+              coming soon...
+            </motion.div>
+          )}
+        </AnimatePresence> */}
       </div>
     </div>
   );

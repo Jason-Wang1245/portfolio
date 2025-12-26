@@ -11,6 +11,12 @@ export default function Projects() {
         description="Chrome extension that allows users to store, organize, and quickly access their web bookmarks for improved browsing efficiency."
         techstack={["React", "Vite", "Shadcn", "TailwindCSS", "manifest.json"]}
       />
+      <ProjectCard
+        title="LogicPatch"
+        link="https://logicpatch.jasonwanng.xyz/"
+        description="Sports team management web application for easy communication between team managers and players."
+        techstack={["MongoDB", "Boostrap", "EJS", "JavaScript", "jQuery"]}
+      />
     </div>
   );
 }
